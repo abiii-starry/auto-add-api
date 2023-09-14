@@ -1,12 +1,12 @@
 describe("add-api", () => {
-    const filePath = "fixtures/example-api.json"
+    const filePath = "fixtures/wallet-balance.json"
     const pendingJson = require("../"+filePath)
     const apiJson = pendingJson.apiJson
 
     before(() => {
         cy.visit("");
         cy.setCookie("u", "MTY5NDY2MzA3NHxEdi1CQkFFQ180SUFBUXdCRUFBQUp2LUNBQUlDYVdRRmFXNTBOalFFQWdBQ0JHNWhiV1VHYzNSeWFXNW5EQWNBQldGa2JXbHV8sGm3daaie2dhb0sh5Fh4JHN6JifUBM1Z4FR53nU-P1k=")
-        cy.reload()
+        // cy.reload()
         cy.getAllCookies().then(cookies => {
             cy.log(cookies)
         })
@@ -46,7 +46,7 @@ describe("add-api", () => {
                 cy.get('#header').type(apiData.header)
             }
             if (apiData.postData) {
-                cy.get('#post_data').type(apiData.postData)
+                cy.get('#post_data').type(JSON.stringify(apiData.postData), {parseSpecialCharSequences:false})
             }
             cy.get('#endpoint').type(apiData.endpoint)
             cy.get('#tags').type(apiData.tags)
