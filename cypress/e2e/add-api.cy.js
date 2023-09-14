@@ -1,10 +1,10 @@
 describe("add-api", () => {
-    const filePath = "fixtures/wallet-balance.json"
-    const pendingJson = require("../"+filePath)
+    const fileName = "wallet-balance.json"
+    const pendingJson = require("../fixtures/"+fileName)
     const apiJson = pendingJson.apiJson
 
     before(() => {
-        cy.visit("");
+        cy.visit("/")
         cy.setCookie("u", "MTY5NDY2MzA3NHxEdi1CQkFFQ180SUFBUXdCRUFBQUp2LUNBQUlDYVdRRmFXNTBOalFFQWdBQ0JHNWhiV1VHYzNSeWFXNW5EQWNBQldGa2JXbHV8sGm3daaie2dhb0sh5Fh4JHN6JifUBM1Z4FR53nU-P1k=")
         // cy.reload()
         cy.getAllCookies().then(cookies => {
@@ -14,9 +14,9 @@ describe("add-api", () => {
 
     after(() => {
         // Change json state
-        cy.readFile("cypress/"+filePath).then(fileJson => {
+        cy.readFile("cypress/fixtures/"+fileName).then(fileJson => {
         fileJson.isDone = true
-        cy.writeFile("cypress/"+filePath, fileJson)
+        cy.writeFile("cypress/fixtures/"+fileName, fileJson)
         })
     })
 
