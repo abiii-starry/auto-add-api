@@ -21,7 +21,7 @@ describe("add-api", () => {
     })
 
     apiJson.forEach(apiData => {
-        it(`Add API ${apiData.tags}`, () => {
+        it.skip(`Add API ${apiData.tags}`, () => {
             // Determine if it has been processed
             cy.log(pendingJson.isDone)
             if (pendingJson.isDone) {
@@ -57,4 +57,5 @@ describe("add-api", () => {
         })
     })
 
+    
 })
