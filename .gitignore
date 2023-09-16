@@ -1,6 +1,6 @@
 /node_modules
 
-/fixtures/*.json
-!/fixtures/example.json
+/cypress/fixtures/*.json
+!cypress/fixtures/example.json
 
 configure.cy.js
