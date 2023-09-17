@@ -13,8 +13,16 @@
     const fileName = type_your_json
     ```
 
-3. `yarn cypress open`
+3. Add the `cypress.env.json` file to the project root directory and add the following
+    ```
+    {
+    "ACCOUNT": your_account,
+    "PASSWORD": your_password
+    }   
+    ```
 
-4. run `add-api.cy.js`
+4. `yarn cypress open`
+
+5. run `add-api.cy.js`
 
 [^JsonFile]: Refer to example.json
