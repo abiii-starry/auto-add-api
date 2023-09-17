@@ -1,15 +1,13 @@
 describe("add-api", () => {
-    const fileName = "wallet-balance.json"
+    const ACCOUNT = Cypress.env("ACCOUNT")
+    const PASSWORD = Cypress.env("PASSWORD")
+    const fileName = "test.json"
     const pendingJson = require("../fixtures/"+fileName)
     const apiJson = pendingJson.apiJson
 
     before(() => {
-        cy.visit("/")
-        cy.setCookie("u", "MTY5NDY2MzA3NHxEdi1CQkFFQ180SUFBUXdCRUFBQUp2LUNBQUlDYVdRRmFXNTBOalFFQWdBQ0JHNWhiV1VHYzNSeWFXNW5EQWNBQldGa2JXbHV8sGm3daaie2dhb0sh5Fh4JHN6JifUBM1Z4FR53nU-P1k=")
-        // cy.reload()
-        cy.getAllCookies().then(cookies => {
-            cy.log(cookies)
-        })
+        cy.login(ACCOUNT, PASSWORD)
+
     })
 
     after(() => {
@@ -21,7 +19,7 @@ describe("add-api", () => {
     })
 
     apiJson.forEach(apiData => {
-        it.skip(`Add API ${apiData.tags}`, () => {
+        it(`Add API ${apiData.tags}`, () => {
             // Determine if it has been processed
             cy.log(pendingJson.isDone)
             if (pendingJson.isDone) {
