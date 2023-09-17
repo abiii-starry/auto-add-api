@@ -1,6 +1,11 @@
 /node_modules
 
+/cypress/e2e/writeFile.cy.js
+
 /cypress/fixtures/*.json
 !cypress/fixtures/example.json
 
 configure.cy.js
+
+
+/cypress.env.json
