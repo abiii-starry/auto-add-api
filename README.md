@@ -11,6 +11,7 @@
     ```
     // Fill the name of the json file created in the first step into the parameter
     const fileName = type_your_json
+    const const pendingJson = require("../fixtures/"+type_your_json)
     ```
 
 3. Add the `cypress.env.json` file to the project root directory and add the following

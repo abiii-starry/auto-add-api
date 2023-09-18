@@ -1,13 +1,14 @@
 describe("add-api", () => {
-    const ACCOUNT = Cypress.env("ACCOUNT")
-    const PASSWORD = Cypress.env("PASSWORD")
-    const fileName = "test.json"
-    const pendingJson = require("../fixtures/"+fileName)
+    // !Modify the following fileName before running: fileName and pendingJson
+    const fileName = "txs.json"
+    const pendingJson = require("../fixtures/"+"txs.json")
+
     const apiJson = pendingJson.apiJson
 
     before(() => {
+        const ACCOUNT = Cypress.env("ACCOUNT")
+        const PASSWORD = Cypress.env("PASSWORD")
         cy.login(ACCOUNT, PASSWORD)
-
     })
 
     after(() => {
